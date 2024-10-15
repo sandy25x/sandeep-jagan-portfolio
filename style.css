@@ -1,0 +1,626 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Color Variables */
+    --dark-bg: #1e1e2f; /* Deep navy */
+    --secondary-bg: #2e2e3e; /* Dark charcoal */
+    --accent-neon: #00bfff; /* Neon green */
+    --accent-blue: #32f5ff; /* Electric blue */
+    --text-light: #e0e0e0; /* Light gray */
+    --text-white: #ffffff; /* White */
+    --box-shadow-default: 
+        0 4px 15px rgba(0, 255, 204, 0.3), 
+        0 6px 20px rgba(30, 144, 255, 0.2);
+    --box-shadow-hover: 
+        0 0 20px rgba(0, 255, 204, 0.6), 
+        0 0 30px rgba(30, 144, 255, 0.4);
+    --gradient-bg: linear-gradient(135deg, #00ffcc, #1e90ff);
+    --gradient-bg1: linear-gradient(120deg, #1e1e2f, #2e2e3e);
+}
+
+a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+.title h1, .title h2, .title h3, .title h4 {
+    color: var(--color-text);
+}
+
+.project .title h1{
+    text-align: center;
+    padding-top: 100px;
+}
+
+
+
+body {
+    margin: 0;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background-color: var(--secondary-bg);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header .logo img {
+    height: 50px;
+    border-radius: 8px;
+}
+
+header ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    height: 100%;
+    justify-content: end;
+    align-items: center;
+    position: relative; /* Important for the pseudo-element positioning */
+}
+
+header ul::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Thickness of the line */
+    background: var(--gradient-bg); /* Use the gradient color */
+}
+
+
+header ul li a {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+header ul li a:hover {
+    color: var(--accent-neon); /* Neon green on hover */
+    font-weight: 500;
+}
+
+header ul li a::after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute;
+    left: 50%; /* Center the underline */
+    bottom: -5px; /* Position it slightly below */
+    width: 0; /* Initial width of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: var(--accent-neon); /* Neon green underline */
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+/* Hover effect */
+header ul li a:hover::after {
+    width: 100%; /* Full width on hover */
+    left: 0; /* Align it to the left */
+}
+
+.container {
+    width: 1200px;
+    max-width: 90%;
+    margin: 100px auto 20px; /* Adjusted top margin for fixed header */
+    padding: 20px; /* Add padding inside the container */
+}
+
+.banner {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding-bottom: 50px;
+    animation: fadeIn 1s ease-in-out; /* Animation for banner */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.banner .content {
+    text-align: left;
+    padding-right: 50px;
+}
+
+.banner .content h1 {
+    font-size: 4em;
+    margin: 0;
+    color: var(--text-white);
+}
+
+.gradientText {
+    display: inline-block;
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.job {
+    display: inline-block;
+    white-space: nowrap;
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.find {
+    margin-top: 50px;
+}
+
+.find ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* Align icons to the left */
+    gap: 10px; /* Optional: Space between the icons */
+}
+
+
+.find ul li {
+    width: 80px;
+    height: 80px;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    color: var(--text-light);
+}
+
+.find ul li:hover {
+    background: var(--gradient-bg1);
+    box-shadow: var(--box-shadow-hover);
+    transform: scale(1.05);
+    color: var(--text-white);
+}
+
+
+.find .social-icons {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: left; /* Center align the icons */
+    gap: 20px; /* Add space between icons */
+    margin-top: 20px;
+}
+
+.contact.social-icons {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center align the icons */
+    gap: 20px; /* Add space between icons */
+    margin-top: 20px;
+}
+
+.social-icons a {
+    font-size: 46px; /* Increase the font size of the icons */
+    color: var(--accent-blue); /* Electric blue */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent-neon); /* Neon green on hover */
+    transform: scale(1.2);
+}
+
+.banner .avatar {
+    position: relative;
+    height: max-content;
+    text-align: center;
+}
+
+.banner .avatar::before {
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    content: '';
+    z-index: -1;
+    bottom: 0;
+    border-radius: 10px;
+    background-color: var(--secondary-bg);
+    box-shadow: var(--box-shadow-default);
+}
+
+.banner img {
+    width: 85%;
+    margin-left: 11.5px;
+    border-radius: 10px;
+}
+
+header .navDiv,
+header .nav label,
+header input {
+    display: none;
+}
+
+.title {
+    text-align: center;
+    padding-top: 50px;
+    color: var(--color-text);
+}
+
+.skill {
+    margin: auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: var(--light);
+}
+
+.listSkill {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 20px;
+    padding-bottom: 50px;
+}
+
+.item {
+    position: relative;
+    margin: 20px 0;
+}
+
+.name {
+    margin-bottom: 10px; /* Add some spacing between name and bar */
+    color: var(--text-light);
+}
+
+.evaluate {
+    width: 100%;
+    height: 20px;
+    background-color: var(--secondary-bg); /* Background for the unfilled bar */
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-default);
+    overflow: hidden; /* To hide the filled part */
+    position: relative;
+}
+
+.evaluate::before {
+    position: absolute;
+    height: 100%;
+    width: 0; /* Start with 0 width */
+    background-image: var(--gradient-bg); /* Use your gradient */
+    content: '';
+    border-radius: 10px;
+    transition: width 1s ease; /* Animate the width */
+}
+
+.evaluate.filled::before {
+    width: var(--point); /* Use the skill level set in JavaScript */
+}
+
+/* Experience Section Styling */
+.experience {
+    margin: -30px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: var(--light);
+}
+
+.experience h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--color-text);
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.experience-item {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.experience-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.experience-item h3 {
+    position: relative;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.experience-item h3:hover {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: var(--accent-neon);
+}
+.experience-item h3::after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute;
+    left: 0; /* Center the underline */
+    bottom: -3px; /* Position it slightly below */
+    width: 0; /* Initial width of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: var(--accent-blue); /* Electric blue underline */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.experience-item h3:hover::after {
+    width: 100%; /* Full width underline on hover */
+}
+
+.experience-item p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: var(--color-text);
+}
+
+.experience-item ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.experience-item ul li {
+    font-size: 1em;
+    color: linear var(--gradient-bg);
+    margin: 5px 0;
+}
+
+/* Responsive for Mobile */
+@media screen and (max-width: 767px) {
+    .experience h2 {
+        font-size: 2em;
+    }
+
+    .experience-item h3 {
+        font-size: 1.5em;
+    }
+
+    .experience-item p, .experience-item ul li {
+        font-size: 1em;
+    }
+}
+.project {
+    margin: 10px auto;
+    max-width: auto;
+    padding: 20px;
+    padding-top: 100px;
+    background-color: var(--light);
+}
+
+.listProject {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-bottom: 50px;
+
+}
+
+.listProject .item {
+    text-align: center;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: large;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.listProject .item img {
+    width: 90%;
+    border-radius: 20px;
+}
+
+.listProject .item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.listProject .item .name a {
+    position: relative;
+    display: inline-block;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.listProject .item .name a::after {
+    content: ''; /* Create an empty pseudo-element */
+    position: absolute;
+    left: 50%; /* Center the underline */
+    bottom: -3px; /* Position it slightly below */
+    width: 0; /* Initial width of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: var(--accent-blue); /* Electric blue underline */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Hover effect */
+.listProject .item .name a:hover {
+    color: var(--accent-neon);
+}
+
+.listProject .item .name a:hover::after {
+    width: 100%; /* Full width on hover */
+    left: 0; /* Align it to the left */
+}
+
+.skill h1,
+.project h1,
+.contact h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0 auto 30px; /* Center horizontally and give bottom margin */
+    color: var(--color-text);
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact {
+    margin: 10px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: var(--light);
+    margin-top: 50px;
+}
+
+.contact ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Align icons to the left */
+    gap: 10px; /* Optional: Space between the icons */
+}
+
+
+.contact ul li {
+    width: 80px;
+    height: 80px;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    color: var(--text-light);
+}
+
+.contact ul li:hover {
+    background: var(--gradient-bg1);
+    box-shadow: var(--box-shadow-hover);
+    transform: scale(1.05);
+    color: var(--text-white);
+}
+
+.contact.social-icons a {
+    font-size: 46px; /* Increase the font size of the icons */
+    color: var(--accent-blue); /* Electric blue */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.contact.social-icons a:hover {
+    color: var(--accent-neon); /* Neon green on hover */
+    transform: scale(1.2);
+}
+  
+/* Desktops and laptops ----------- */
+@media screen and (min-width: 1224px) {
+    .listProject {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (max-width: 1024px) {
+    header ul {
+        /* Adjustments for tablet view */
+    }
+    .banner {
+        grid-template-columns: 40% 60%;
+    }
+    .banner .content h1 {
+        font-size: 2.5em;
+    }
+    .listProject {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+    .banner {
+        grid-template-columns: 1fr;
+    }
+    .banner .content h1 {
+        font-size: 1.8em;
+    }
+    .banner .avatar {
+        grid-row-start: 1;
+    }
+    header .navDiv {
+        display: flex;
+        justify-content: end;
+    }
+    header label {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--accent-blue); 
+        box-shadow: var(--box-shadow-default);
+        border-radius: 50%;
+    }
+    header .nav {
+        position: fixed;
+        background-color: var(--dark-bg);
+        z-index: 1001;
+        width: 70%;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 70px);
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+    }
+    input[type='checkbox']:checked ~ .nav {
+        transform: translateX(0);
+    }
+    header .nav label.close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background-color: var(--accent-blue); /* Close button color */
+        border-radius: 50%;
+        color: var(--text-white);
+        padding: 10px;
+        cursor: pointer;
+    }
+    header .nav ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    header .nav ul li {
+        height: auto; /* Allow height to adjust based on content */
+        width: auto; /* Allow width to adjust based on content */
+    }
+    header .nav ul li a {
+        padding: 15px 20px; /* Adjust padding for mobile */
+        font-size: 1.2em;
+    }
+    .title {
+        padding-top: 30px; /* Adjust padding for mobile */
+    }
+    .listProject{
+    grid-template-columns: 1fr;
+
+}
+}
