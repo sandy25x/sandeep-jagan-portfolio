@@ -42,7 +42,7 @@ const jobElement = document.querySelector('.job');
 const jobs = [
     "{WebDeveloper.}",
     "{FrontendDev.}",
-    "{EthicalHacker.}",
+    "{C|EthicalHacker.}",
     "{CDeveloper.}",
     "{PythonDev.}"
 ];
