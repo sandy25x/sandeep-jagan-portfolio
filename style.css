@@ -409,7 +409,7 @@ header input {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding-bottom: 50px;
+    align-items: start;
 
 }
 
@@ -420,8 +420,11 @@ header input {
     padding: 20px;
     border-radius: 10px;
     font-weight: bold;
+    transform: scale(1);
     font-size: large;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 1.3s ease, box-shadow 1.3s ease;
+    will-change: transform;
+    overflow: hidden;
 }
 
 .listProject .item img {
@@ -438,7 +441,7 @@ header input {
     position: relative;
     display: inline-block;
     color: var(--text-light);
-    transition: color 0.3s ease;
+    transition: color 1.3s ease;
 }
 
 .listProject .item .name a::after {
@@ -449,7 +452,7 @@ header input {
     width: 0; /* Initial width of the underline */
     height: 2px; /* Thickness of the underline */
     background-color: var(--accent-blue); /* Electric blue underline */
-    transition: width 0.3s ease, left 0.3s ease;
+    transition: width 1.3s ease, left 1.3s ease;
 }
 
 /* Hover effect */
@@ -466,7 +469,7 @@ header input {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: opacity 0.4s ease, max-height 0.4s ease;
+    transition: opacity 1.4s ease, max-height 1.4s ease;
     color: var(--text-light);
     font-size: 0.9em;
     margin-top: 10px;
