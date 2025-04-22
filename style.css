@@ -462,6 +462,22 @@ header input {
     left: 0; /* Align it to the left */
 }
 
+.listProject .item .desc {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    color: var(--text-light);
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.listProject .item:hover .desc {
+    opacity: 1;
+    max-height: 200px;
+}
+
+
 .skill h1,
 .project h1,
 .contact h1 {
